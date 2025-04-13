@@ -6,7 +6,7 @@ import platform
 import asyncio
 import os
 from dotenv import load_dotenv
-
+load_dotenv()
 class Client(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix=commands.when_mentioned_or('.'), intents=discord.Intents().all())
