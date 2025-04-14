@@ -7,6 +7,7 @@ import asyncio
 import os
 from dotenv import load_dotenv
 load_dotenv()
+
 class Client(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix=commands.when_mentioned_or('bau!'), intents=discord.Intents().all())
@@ -21,7 +22,6 @@ class Client(commands.Bot):
             except Exception as e:
                 print(f"Failed to load extension {ext}: {e}")
      
-
     async def on_ready(self):
         prfx = (time.strftime("%H:%M:%S UTC", time.gmtime()))
         print(prfx + " Logged in as " + self.user.name)
@@ -42,4 +42,16 @@ class Client(commands.Bot):
             return
 
 client = Client()
+
+@client.command()
+async def bau(ctx):
+    await ctx.send("https://tenor.com/view/fuwamoco-baubau-gif-2478836885696344855")
+
+@client.event
+async def on_message(message):
+    if 'bau bau' in message.content.lower():
+        await message.add_reaction('<:bau:1361315398418698251>')
+    
+    await client.process_commands(message)
+
 client.run(os.getenv("TOKEN"))
