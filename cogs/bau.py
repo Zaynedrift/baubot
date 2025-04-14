@@ -9,7 +9,7 @@ class bau(commands.Cog):
 
     @app_commands.command(name="bau", description="bau bau bau")
     async def bau(self, interaction: discord.Interaction):
-        await interaction.response.send_message(content="bau")
+        await interaction.response.send_message(content="baubau!")
         print(f"{interaction.user.display_name} baued")
 
     @commands.Cog.listener()
@@ -26,5 +26,3 @@ async def setup(client):
         return
     except Exception as e:
         return
-
-

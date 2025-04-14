@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 class Client(commands.Bot):
     def __init__(self):
-        super().__init__(command_prefix=commands.when_mentioned_or('.'), intents=discord.Intents().all())
+        super().__init__(command_prefix=commands.when_mentioned_or('bau!'), intents=discord.Intents().all())
 
         self.cogslist = ["cogs.bau", "cogs.info"]
 
