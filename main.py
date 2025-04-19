@@ -12,7 +12,7 @@ class Client(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix=commands.when_mentioned_or('bau!'), intents=discord.Intents().all())
 
-        self.cogslist = ["cogs.bau", "cogs.info"]
+        self.cogslist = ["cogs.bau", "cogs.jpnbau" "cogs.info", "cogs.jpninfo"]
 
     async def setup_hook(self):
         for ext in self.cogslist:
@@ -47,11 +47,21 @@ client = Client()
 async def bau(ctx):
     await ctx.send("https://tenor.com/view/fuwamoco-baubau-gif-2478836885696344855")
 
+@client.command()
+async def jpn(ctx):
+    await ctx.send("バウバウ!")
+
 @client.event
 async def on_message(message):
     if 'bau bau' in message.content.lower():
         await message.add_reaction('<:bau:1361315398418698251>')
-    
+    if 'fuwa' or 'fuwawa' in message.content.lower():
+        await message.add_reaction('<a:fuwabau:1363129865632616448>')
+    if 'moco' or 'mococo' in message.content.lower():
+        await message.add_reaction('<a:mocobau:1363129818484445235>')
+    if 'pero' in message.content.lower():
+        await message.add_reaction('<:perocozy:1363130851595915395>')
+
     await client.process_commands(message)
 
 client.run(os.getenv("TOKEN"))
