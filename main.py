@@ -55,9 +55,9 @@ async def jpn(ctx):
 async def on_message(message):
     if 'bau bau' in message.content.lower():
         await message.add_reaction('<:bau:1361315398418698251>')
-    if 'fuwa' or 'fuwawa' in message.content.lower():
+    if 'fuwawa' in message.content.lower():
         await message.add_reaction('<a:fuwabau:1363129865632616448>')
-    if 'moco' or 'mococo' in message.content.lower():
+    if 'mococo' in message.content.lower():
         await message.add_reaction('<a:mocobau:1363129818484445235>')
     if 'pero' in message.content.lower():
         await message.add_reaction('<:perocozy:1363130851595915395>')
