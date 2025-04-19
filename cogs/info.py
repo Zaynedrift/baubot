@@ -10,7 +10,7 @@ class info(commands.Cog):
     @app_commands.command(name="info", description="information about baubot")
     async def info(self, interaction: discord.Interaction):
         embed = discord.Embed(
-            title="baubot v1.1",
+            title="baubot v1.1.2",
             description=(''
             'baubot is a discord application written in python using discord.py inspired by the hololive duo fuwamoco created by @zaynedrift. the application is hosted locally from Zaynes localhost.'
             '\nclick [here](https://github.com/Zaynedrift/baubot) for the github repository.'
