@@ -12,7 +12,7 @@ class Client(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix=commands.when_mentioned_or('bau!'), intents=discord.Intents().all())
 
-        self.cogslist = ["cogs.bau", "cogs.jpnbau", "cogs.info", "cogs.jpninfo", "cogs.yuri"]
+        self.cogslist = ["cogs.bau", "cogs.jpnbau", "cogs.info", "cogs.jpninfo", "cogs.yuri", "cogs.ping"]
 
     async def setup_hook(self):
         for ext in self.cogslist:
@@ -46,6 +46,12 @@ client = Client()
 @client.command()
 async def bau(ctx):
     await ctx.send("https://tenor.com/view/fuwamoco-baubau-gif-2478836885696344855")
+
+@client.command()
+async def ping(ctx):
+    bot_latency = round(client.latency * 1000)
+    api_latency = round(client.ws.latency * 1000)
+    await ctx.send(f'baubau! <a:fuwabau:1363129865632616448><a:mocobau:1363129818484445235>\n\nbaupp latency: {bot_latency}ms\nBAUPI latency: {api_latency}ms', ephemeral=True)
 
 @client.command()
 async def jpn(ctx):
